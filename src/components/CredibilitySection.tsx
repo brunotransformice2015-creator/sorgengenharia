@@ -26,24 +26,27 @@ const pillars = [
 
 const CredibilitySection = () => {
   return (
-    <section id="sobre" className="section-padding bg-secondary">
-      <div className="max-w-7xl mx-auto">
+    <section id="sobre" className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-72 h-72 bg-accent/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full translate-x-1/3 translate-y-1/3" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-14"
         >
           <span className="text-accent font-semibold text-sm tracking-widest uppercase">
             Por que a Sorg?
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold mt-4 text-foreground">
             Excelência que você{" "}
-            <span className="italic">pode confiar</span>
+            <span className="italic text-accent">pode confiar</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {pillars.map((p, i) => (
             <motion.div
               key={p.title}
@@ -51,10 +54,10 @@ const CredibilitySection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-6 p-8 rounded-xl bg-background border border-border/60 hover:shadow-lg transition-shadow"
+              className="group flex gap-5 p-7 rounded-2xl bg-secondary border border-transparent hover:border-accent/20 hover:shadow-lg transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary flex items-center justify-center shrink-0">
-                <p.icon size={26} className="text-primary-foreground" />
+              <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:shadow-md transition-all duration-300">
+                <p.icon size={24} className="text-accent group-hover:text-primary-foreground transition-colors" />
               </div>
               <div>
                 <h3 className="font-display text-lg font-bold text-foreground mb-2">
