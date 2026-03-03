@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
-import sorgLogo from "@/assets/sorglogo.png";
 
 const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
 
@@ -18,6 +18,27 @@ const footerLinks = [
   { label: "Sobre", href: "#sobre" },
 ];
 
+const FooterLogo = () => {
+  const [imgError, setImgError] = useState(false);
+
+  if (imgError) {
+    return (
+      <span className="text-xl font-bold text-primary-foreground mb-4 block">
+        SORG <span className="font-light">Engenharia</span>
+      </span>
+    );
+  }
+
+  return (
+    <img
+      src="/logosorg.png"
+      alt="Sorg Engenharia"
+      onError={() => setImgError(true)}
+      className="h-10 w-auto min-w-[100px] object-contain brightness-0 invert mb-4"
+    />
+  );
+};
+
 const Footer = () => {
   return (
     <footer className="bg-primary">
@@ -26,11 +47,7 @@ const Footer = () => {
         <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 border-b border-primary-foreground/10">
           {/* Logo + description */}
           <div className="md:col-span-1">
-            <img
-              src={sorgLogo}
-              alt="Sorg Engenharia"
-              className="h-10 w-auto object-contain brightness-0 invert mb-4"
-            />
+            <FooterLogo />
             <p className="text-primary-foreground/50 text-sm leading-relaxed max-w-xs">
               Engenharia de excelência para transformar seu projeto em realidade. 
               Do planejamento à entrega, cada detalhe sob controle.

@@ -2,9 +2,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import sorgLogo from "@/assets/sorglogo.png";
 
 const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
+
+const Logo = ({ scrolled }: { scrolled: boolean }) => {
+  const [imgError, setImgError] = useState(false);
+
+  if (imgError) {
+    return (
+      <span className={`text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-300 ${
+        scrolled ? "text-primary" : "text-primary-foreground"
+      }`}>
+        SORG<span className="font-light ml-1">Engenharia</span>
+      </span>
+    );
+  }
+
+  return (
+    <img
+      src="/logosorg.png"
+      alt="Sorg Engenharia"
+      onError={() => setImgError(true)}
+      className={`h-9 sm:h-11 w-auto min-w-[100px] object-contain transition-all duration-300 ${
+        scrolled ? "" : "brightness-0 invert"
+      }`}
+    />
+  );
+};
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -36,13 +60,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
         <a href="#" className="flex items-center shrink-0">
-          <img
-            src={sorgLogo}
-            alt="Sorg Engenharia"
-            className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 ${
-              scrolled ? "" : "brightness-0 invert"
-            }`}
-          />
+          <Logo scrolled={scrolled} />
         </a>
 
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
