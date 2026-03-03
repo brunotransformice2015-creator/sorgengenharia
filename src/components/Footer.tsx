@@ -1,19 +1,107 @@
+import { motion } from "framer-motion";
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
 import sorgLogo from "@/assets/sorglogo.png";
+
+const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
+
+const socials = [
+  { icon: FaInstagram, href: "https://instagram.com/sorgengenharia", label: "Instagram" },
+  { icon: FaFacebookF, href: "https://facebook.com/sorgengenharia", label: "Facebook" },
+  { icon: FaLinkedinIn, href: "https://linkedin.com/company/sorgengenharia", label: "LinkedIn" },
+  { icon: FaWhatsapp, href: WA_LINK, label: "WhatsApp" },
+];
+
+const footerLinks = [
+  { label: "Serviços", href: "#servicos" },
+  { label: "Projetos", href: "#projetos" },
+  { label: "Financiamento", href: "#financiamento" },
+  { label: "Sobre", href: "#sobre" },
+];
 
 const Footer = () => {
   return (
-    <footer className="bg-primary py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <img src={sorgLogo} alt="Sorg Engenharia" className="h-9 max-w-[140px] w-auto object-contain brightness-0 invert" />
+    <footer className="bg-primary">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        {/* Top section */}
+        <div className="py-12 md:py-16 grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 border-b border-primary-foreground/10">
+          {/* Logo + description */}
+          <div className="md:col-span-1">
+            <img
+              src={sorgLogo}
+              alt="Sorg Engenharia"
+              className="h-10 w-auto object-contain brightness-0 invert mb-4"
+            />
+            <p className="text-primary-foreground/50 text-sm leading-relaxed max-w-xs">
+              Engenharia de excelência para transformar seu projeto em realidade. 
+              Do planejamento à entrega, cada detalhe sob controle.
+            </p>
+          </div>
+
+          {/* Links */}
+          <div>
+            <h4 className="text-primary-foreground font-semibold text-sm mb-4 uppercase tracking-wider">
+              Navegação
+            </h4>
+            <div className="flex flex-col gap-3">
+              {footerLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="text-primary-foreground/50 text-sm hover:text-primary-foreground transition-colors duration-200"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact + Social */}
+          <div>
+            <h4 className="text-primary-foreground font-semibold text-sm mb-4 uppercase tracking-wider">
+              Contato
+            </h4>
+            <a
+              href="tel:+5511999231384"
+              className="text-primary-foreground/50 text-sm hover:text-primary-foreground transition-colors block mb-2"
+            >
+              +55 (11) 99923-1384
+            </a>
+            <a
+              href="mailto:contato@sorgengenharia.com.br"
+              className="text-primary-foreground/50 text-sm hover:text-primary-foreground transition-colors block mb-6"
+            >
+              contato@sorgengenharia.com.br
+            </a>
+
+            <div className="flex gap-3">
+              {socials.map((s) => (
+                <motion.a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  whileHover={{ scale: 1.15, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/60 hover:bg-accent hover:text-primary-foreground transition-colors duration-300"
+                >
+                  <s.icon size={16} />
+                </motion.a>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="text-center md:text-right">
-          <p className="text-primary-foreground/40 text-sm">
+
+        {/* Bottom section */}
+        <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-primary-foreground/30 text-xs">
             © {new Date().getFullYear()} Sorg Engenharia. Todos os direitos reservados.
           </p>
-          <p className="text-primary-foreground/30 text-xs mt-1">
+          <p className="text-primary-foreground/20 text-xs">
             Feito por{" "}
-            <span className="text-primary-foreground/50 font-medium">Você Digital Propaganda</span>
+            <span className="text-primary-foreground/40 font-medium hover:text-primary-foreground/60 transition-colors cursor-pointer">
+              Você Digital Propaganda
+            </span>
           </p>
         </div>
       </div>
