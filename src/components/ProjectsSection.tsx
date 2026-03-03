@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import project1 from "@/assets/project-1.jpg";
 import project2 from "@/assets/project-2.jpg";
 import project3 from "@/assets/project-3.jpg";
@@ -16,83 +16,111 @@ const projects = [
 const ProjectsSection = () => {
   const [active, setActive] = useState(0);
 
+  const next = () => setActive((prev) => (prev + 1) % projects.length);
+  const prev = () => setActive((prev) => (prev - 1 + projects.length) % projects.length);
+
   return (
-    <section id="projetos" className="section-padding bg-background">
+    <section id="projetos" className="section-padding bg-secondary">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between mb-12"
+          className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
         >
-          <div>
-            <span className="text-accent font-semibold text-sm tracking-widest uppercase">
-              Portfólio
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl font-bold mt-3 text-foreground">
-              Projetos que <span className="italic text-accent">inspiram</span>
-            </h2>
-          </div>
-          <p className="text-muted-foreground mt-4 md:mt-0 max-w-md text-sm leading-relaxed">
+          <span className="text-accent font-semibold text-sm tracking-widest uppercase">
+            Portfólio
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mt-3 text-foreground">
+            Projetos que <span className="italic text-accent">inspiram</span>
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm leading-relaxed">
             Cada obra é única. Confira alguns dos nossos projetos residenciais entregues com excelência.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-12 gap-6">
+        {/* Main showcase */}
+        <div className="relative max-w-5xl mx-auto">
           <motion.div
             key={active}
-            initial={{ opacity: 0, scale: 0.98 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="lg:col-span-8 relative rounded-2xl overflow-hidden aspect-[16/10] group"
+            transition={{ duration: 0.5 }}
+            className="relative rounded-3xl overflow-hidden aspect-[16/9] md:aspect-[16/8] group"
           >
             <img
               src={projects[active].img}
               alt={projects[active].title}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 flex items-end justify-between">
-              <div>
-                <h3 className="font-display text-2xl font-bold text-primary-foreground">
+            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/30 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-10">
+              <motion.div
+                key={`info-${active}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground">
                   {projects[active].title}
                 </h3>
-                <div className="flex gap-4 mt-2">
-                  <span className="text-sm text-primary-foreground/80 bg-primary-foreground/10 px-3 py-1 rounded-full backdrop-blur-sm">
+                <div className="flex flex-wrap gap-3 mt-3">
+                  <span className="text-sm text-primary-foreground/90 bg-primary-foreground/15 px-4 py-1.5 rounded-full backdrop-blur-md border border-primary-foreground/10">
                     {projects[active].area}
                   </span>
-                  <span className="text-sm text-primary-foreground/80 bg-primary-foreground/10 px-3 py-1 rounded-full backdrop-blur-sm">
+                  <span className="text-sm text-primary-foreground/90 bg-primary-foreground/15 px-4 py-1.5 rounded-full backdrop-blur-md border border-primary-foreground/10">
                     {projects[active].style}
                   </span>
                 </div>
-              </div>
-              <div className="hidden md:flex items-center gap-1 text-primary-foreground/60 text-xs">
-                <span>{active + 1}</span>
-                <span>/</span>
-                <span>{projects.length}</span>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-3">
-            {projects.map((p, i) => (
-              <button
-                key={p.title}
-                onClick={() => setActive(i)}
-                className={`relative rounded-xl overflow-hidden aspect-[16/10] lg:aspect-[16/7] transition-all duration-300 ${
-                  i === active
-                    ? "ring-2 ring-accent ring-offset-2 ring-offset-background opacity-100 scale-[1.02]"
-                    : "opacity-60 hover:opacity-90"
-                }`}
-              >
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
-                <div className={`absolute inset-0 ${i === active ? 'bg-accent/10' : 'bg-foreground/30'} transition-colors`} />
-                <span className="absolute bottom-2 left-3 text-xs font-semibold text-primary-foreground drop-shadow-md">
-                  {p.title}
-                </span>
-              </button>
-            ))}
-          </div>
+          {/* Navigation arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-3 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 z-10"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-3 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-background/90 backdrop-blur-sm shadow-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-110 z-10"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        {/* Thumbnails */}
+        <div className="flex justify-center gap-3 md:gap-4 mt-6 md:mt-8">
+          {projects.map((p, i) => (
+            <motion.button
+              key={p.title}
+              onClick={() => setActive(i)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`relative rounded-xl md:rounded-2xl overflow-hidden w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-20 lg:w-36 lg:h-24 transition-all duration-300 ${
+                i === active
+                  ? "ring-2 ring-accent ring-offset-2 ring-offset-secondary shadow-lg"
+                  : "opacity-50 hover:opacity-80"
+              }`}
+            >
+              <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+              {i === active && (
+                <motion.div
+                  layoutId="activeThumb"
+                  className="absolute inset-0 bg-accent/20 border-2 border-accent rounded-xl md:rounded-2xl"
+                />
+              )}
+            </motion.button>
+          ))}
+        </div>
+
+        {/* Counter */}
+        <div className="text-center mt-4">
+          <span className="text-muted-foreground text-sm font-medium">
+            {active + 1} <span className="text-border">/ </span>{projects.length}
+          </span>
         </div>
       </div>
     </section>

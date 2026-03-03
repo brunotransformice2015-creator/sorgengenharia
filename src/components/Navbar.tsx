@@ -1,13 +1,20 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import sorgLogo from "@/assets/sorglogo.png";
 
 const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const links = [
     { label: "Serviços", href: "#servicos" },
@@ -18,22 +25,36 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/40"
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/30"
+          : "bg-transparent"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center">
-          <img src={sorgLogo} alt="Sorg Engenharia" className="h-10 max-w-[160px] w-auto object-contain" />
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
+        <a href="#" className="flex items-center shrink-0">
+          <img
+            src={sorgLogo}
+            alt="Sorg Engenharia"
+            className={`h-9 sm:h-11 w-auto object-contain transition-all duration-300 ${
+              scrolled ? "" : "brightness-0 invert"
+            }`}
+          />
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors duration-300 ${
+                scrolled
+                  ? "text-foreground/70 hover:text-primary"
+                  : "text-primary-foreground/80 hover:text-primary-foreground"
+              }`}
             >
               {l.label}
             </a>
@@ -42,48 +63,63 @@ const Navbar = () => {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#20bd5a] transition-colors"
+            className="inline-flex items-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-5 lg:px-6 py-2.5 rounded-full hover:bg-[#20bd5a] hover:shadow-lg hover:scale-105 transition-all duration-300"
           >
             <FaWhatsapp size={16} />
             Fale Conosco
           </a>
         </div>
 
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)}>
+        <button
+          className={`md:hidden p-2 rounded-lg transition-colors ${
+            scrolled ? "text-foreground" : "text-primary-foreground"
+          }`}
+          onClick={() => setOpen(!open)}
+        >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {open && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          className="md:hidden bg-background border-t border-border"
-        >
-          <div className="flex flex-col px-6 py-4 gap-4">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-background/98 backdrop-blur-xl border-t border-border overflow-hidden"
+          >
+            <div className="flex flex-col px-6 py-5 gap-4">
+              {links.map((l, i) => (
+                <motion.a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="text-base font-medium text-foreground/70 hover:text-primary py-1"
+                >
+                  {l.label}
+                </motion.a>
+              ))}
+              <motion.a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-foreground/70 hover:text-primary"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-6 py-3 rounded-full mt-2"
               >
-                {l.label}
-              </a>
-            ))}
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-6 py-2.5 rounded-full"
-            >
-              <FaWhatsapp size={16} />
-              Fale Conosco
-            </a>
-          </div>
-        </motion.div>
-      )}
+                <FaWhatsapp size={16} />
+                Fale Conosco
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 };
