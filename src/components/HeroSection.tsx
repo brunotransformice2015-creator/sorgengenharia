@@ -1,64 +1,86 @@
 import { motion } from "framer-motion";
-import { Play, ArrowDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import heroImg from "@/assets/hero-construction.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-end overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
           alt="Construção residencial de alto padrão"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105"
         />
-        <div
-          className="absolute inset-0"
-          style={{ background: "var(--hero-overlay)" }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/70 to-foreground/20" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-20 w-full">
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pb-12 pt-40">
+        {/* Top tag */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-2xl"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-8"
         >
-          <span className="inline-block text-gold font-semibold text-sm tracking-widest uppercase mb-6">
+          <span className="inline-flex items-center gap-2 text-gold/90 text-xs tracking-[0.3em] uppercase font-medium border border-gold/20 px-4 py-2 rounded-full backdrop-blur-sm bg-primary-foreground/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
             Gerenciamento Completo de Obras
           </span>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-primary-foreground">
-            Transformamos seu projeto em{" "}
-            <span className="italic">realidade</span>
+        </motion.div>
+
+        {/* Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="max-w-3xl mb-8"
+        >
+          <h1 className="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight text-primary-foreground">
+            Sua casa dos
+            <br />
+            sonhos, do projeto
+            <br />
+            <span className="italic font-normal text-gold">à realidade.</span>
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed mb-10 text-primary-foreground/80 font-light">
-            Do alicerce à entrega das chaves, cuidamos de cada detalhe da sua
-            obra com engenharia de excelência e atendimento exclusivo.
+        </motion.div>
+
+        {/* Subtext + CTA row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16"
+        >
+          <p className="max-w-md text-primary-foreground/60 text-base leading-relaxed font-light">
+            Engenharia de excelência com atendimento exclusivo. 
+            Do alicerce à entrega das chaves, cada detalhe sob controle.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex items-center gap-4">
             <a
               href="#contato"
-              className="bg-primary-foreground text-primary font-semibold px-8 py-4 rounded-lg text-center hover:opacity-90 transition-opacity text-sm"
+              className="group inline-flex items-center gap-3 bg-primary-foreground text-foreground font-medium px-8 py-4 rounded-full text-sm tracking-wide hover:bg-gold hover:text-foreground transition-all duration-300"
             >
               Solicitar Orçamento
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#projetos"
-              className="border border-primary-foreground/30 text-primary-foreground font-semibold px-8 py-4 rounded-lg text-center hover:bg-primary-foreground/10 transition-colors text-sm flex items-center justify-center gap-2"
+              className="inline-flex items-center gap-2 text-primary-foreground/70 font-medium text-sm hover:text-primary-foreground transition-colors"
             >
-              <Play size={16} /> Ver Projetos
+              Ver Projetos
             </a>
           </div>
         </motion.div>
 
         {/* Stats bar */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x md:divide-primary-foreground/20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="border-t border-primary-foreground/10 pt-8 grid grid-cols-2 md:grid-cols-4 gap-8"
         >
           {[
             { num: "150+", label: "Obras Entregues" },
@@ -66,11 +88,11 @@ const HeroSection = () => {
             { num: "98%", label: "Clientes Satisfeitos" },
             { num: "15+", label: "Anos de Experiência" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center md:px-8">
-              <div className="font-display text-3xl md:text-4xl font-bold text-primary-foreground">
+            <div key={stat.label}>
+              <div className="font-display text-3xl md:text-4xl font-light text-primary-foreground tracking-tight">
                 {stat.num}
               </div>
-              <div className="text-sm text-primary-foreground/60 mt-1">
+              <div className="text-xs text-primary-foreground/40 mt-1 tracking-wider uppercase">
                 {stat.label}
               </div>
             </div>
@@ -82,14 +104,14 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5 }}
+          animate={{ y: [0, 6, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <ArrowDown size={20} className="text-primary-foreground/50" />
+          <ChevronDown size={18} className="text-primary-foreground/30" />
         </motion.div>
       </motion.div>
     </section>
