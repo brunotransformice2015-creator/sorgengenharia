@@ -19,29 +19,17 @@ const HeroSection = () => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pb-12 pt-40">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mb-8"
-        >
-          <span className="inline-flex items-center gap-2 text-accent/90 text-xs tracking-[0.3em] uppercase font-medium border border-accent/20 px-4 py-2 rounded-full backdrop-blur-sm bg-primary-foreground/5">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-            Gerenciamento Completo de Obras
-          </span>
-        </motion.div>
-
-        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-3xl mb-8"
         >
-          <h1 className="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight text-primary-foreground">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tight text-primary-foreground uppercase">
             Sua casa dos
             <br />
             sonhos, do projeto
             <br />
-            <span className="italic font-normal text-gold">à realidade.</span>
+            <span className="italic font-normal text-gold">À REALIDADE.</span>
           </h1>
         </motion.div>
 
