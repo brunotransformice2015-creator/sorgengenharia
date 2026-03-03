@@ -1,16 +1,13 @@
+import sorgLogo from "@/assets/sorglogo.png";
+
 const Footer = () => {
   return (
-    <footer className="bg-section-dark py-12 px-6">
+    <footer className="bg-primary py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <span className="font-display text-lg font-bold text-section-dark-foreground">
-            SORG<span className="font-sans font-light text-section-dark-foreground/60 ml-1">Engenharia</span>
-          </span>
-          <p className="text-section-dark-foreground/40 text-sm mt-1">
-            Gerenciamento completo de obras residenciais
-          </p>
+        <div className="flex items-center gap-3">
+          <img src={sorgLogo} alt="Sorg Engenharia" className="h-8 brightness-0 invert" />
         </div>
-        <p className="text-section-dark-foreground/30 text-sm">
+        <p className="text-primary-foreground/40 text-sm">
           © {new Date().getFullYear()} Sorg Engenharia. Todos os direitos reservados.
         </p>
       </div>
