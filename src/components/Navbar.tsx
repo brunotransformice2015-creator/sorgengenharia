@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import sorgLogo from "@/assets/sorglogo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -19,9 +20,9 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="font-display text-xl font-bold tracking-tight text-primary">
-          SORG<span className="font-sans font-light text-muted-foreground ml-1">Engenharia</span>
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        <a href="#" className="flex items-center">
+          <img src={sorgLogo} alt="Sorg Engenharia" className="h-10" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -29,14 +30,14 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {l.label}
             </a>
           ))}
           <a
             href="#contato"
-            className="bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-lg hover:opacity-90 transition-opacity"
+            className="bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
           >
             Fale Conosco
           </a>
@@ -59,7 +60,7 @@ const Navbar = () => {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground"
+                className="text-sm font-medium text-muted-foreground hover:text-primary"
               >
                 {l.label}
               </a>

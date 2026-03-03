@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
+const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const CTASection = () => {
   return (
     <section id="contato" className="section-padding bg-primary relative overflow-hidden">
-      {/* Decorative circles */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent/10 -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-accent/5 translate-y-1/2 -translate-x-1/2" />
 
@@ -27,15 +29,16 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
             <a
-              href="https://wa.me/5500000000000"
+              href={WA_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-primary-foreground text-primary font-semibold px-8 py-4 rounded-lg hover:opacity-90 transition-opacity text-sm inline-flex items-center justify-center gap-2"
             >
+              <FaWhatsapp size={18} />
               Falar no WhatsApp <ArrowRight size={16} />
             </a>
             <a
-              href="tel:+5500000000000"
+              href="tel:+5511999231384"
               className="border border-primary-foreground/30 text-primary-foreground font-semibold px-8 py-4 rounded-lg hover:bg-primary-foreground/10 transition-colors text-sm"
             >
               Ligar Agora

@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import heroImg from "@/assets/hero-construction.jpg";
+
+const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={heroImg}
@@ -15,22 +17,19 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/70 to-foreground/20" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pb-12 pt-40">
-        {/* Top tag */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mb-8"
         >
-          <span className="inline-flex items-center gap-2 text-gold/90 text-xs tracking-[0.3em] uppercase font-medium border border-gold/20 px-4 py-2 rounded-full backdrop-blur-sm bg-primary-foreground/5">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold" />
+          <span className="inline-flex items-center gap-2 text-accent/90 text-xs tracking-[0.3em] uppercase font-medium border border-accent/20 px-4 py-2 rounded-full backdrop-blur-sm bg-primary-foreground/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" />
             Gerenciamento Completo de Obras
           </span>
         </motion.div>
 
-        {/* Headline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -46,7 +45,6 @@ const HeroSection = () => {
           </h1>
         </motion.div>
 
-        {/* Subtext + CTA row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,9 +58,12 @@ const HeroSection = () => {
 
           <div className="flex items-center gap-4">
             <a
-              href="#contato"
-              className="group inline-flex items-center gap-3 bg-primary-foreground text-foreground font-medium px-8 py-4 rounded-full text-sm tracking-wide hover:bg-gold hover:text-foreground transition-all duration-300"
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 bg-primary-foreground text-foreground font-medium px-8 py-4 rounded-full text-sm tracking-wide hover:bg-accent hover:text-primary-foreground transition-all duration-300"
             >
+              <FaWhatsapp size={18} />
               Solicitar Orçamento
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
@@ -75,7 +76,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
 
-        {/* Stats bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -100,7 +100,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

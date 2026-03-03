@@ -6,6 +6,7 @@ import FinancialSection from "@/components/FinancialSection";
 import CredibilitySection from "@/components/CredibilitySection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <CredibilitySection />
       <CTASection />
       <Footer />
+      <WhatsAppFloat />
     </div>
   );
 };
