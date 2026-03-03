@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useState } from "react";
 import sorgLogo from "@/assets/sorglogo.png";
+
+const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -18,11 +21,11 @@ const Navbar = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/40"
+      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xl border-b border-border/40"
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center">
-          <img src={sorgLogo} alt="Sorg Engenharia" className="h-10" />
+          <img src={sorgLogo} alt="Sorg Engenharia" className="h-12 w-auto object-contain" />
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -30,15 +33,18 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors"
             >
               {l.label}
             </a>
           ))}
           <a
-            href="#contato"
-            className="bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-lg hover:bg-primary/90 transition-colors"
+            href={WA_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#20bd5a] transition-colors"
           >
+            <FaWhatsapp size={16} />
             Fale Conosco
           </a>
         </div>
@@ -60,16 +66,19 @@ const Navbar = () => {
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="text-sm font-medium text-muted-foreground hover:text-primary"
+                className="text-sm font-medium text-foreground/70 hover:text-primary"
               >
                 {l.label}
               </a>
             ))}
             <a
-              href="#contato"
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
-              className="bg-primary text-primary-foreground text-sm font-semibold px-6 py-2.5 rounded-lg text-center"
+              className="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white text-sm font-semibold px-6 py-2.5 rounded-full"
             >
+              <FaWhatsapp size={16} />
               Fale Conosco
             </a>
           </div>
