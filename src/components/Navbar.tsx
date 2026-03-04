@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import logoSorg from "@/assets/logosorg.png";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
@@ -20,7 +21,7 @@ const Logo = ({ scrolled }: { scrolled: boolean }) => {
 
   return (
     <img
-      src="/logosorg.png"
+      src={logoSorg}
       alt="Sorg Engenharia"
       onError={() => setImgError(true)}
       className={`h-9 sm:h-11 w-auto min-w-[100px] object-contain transition-all duration-300 ${

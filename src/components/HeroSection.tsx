@@ -1,21 +1,26 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import heroImg from "@/assets/hero-construction.jpg";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
+
+// ============================================================
+// 🎬 VÍDEO DO HERO — Altere a URL abaixo para trocar o vídeo:
+// Pode ser um arquivo local (ex: "/video.mp4") ou URL externa.
+// ============================================================
+const HERO_VIDEO_URL = "https://videos.pexels.com/video-files/5765826/5765826-uhd_2560_1440_24fps.mp4";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0">
-        <motion.img
-          src={heroImg}
-          alt="Construção residencial de alto padrão"
+        <video
+          src={HERO_VIDEO_URL}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-          initial={{ scale: 1.2 }}
-          animate={{ scale: 1.05 }}
-          transition={{ duration: 10, ease: "easeOut" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/10" />
       </div>
