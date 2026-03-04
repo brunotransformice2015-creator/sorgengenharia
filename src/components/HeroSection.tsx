@@ -4,11 +4,8 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
-// ============================================================
-// 🎬 VÍDEO DO HERO — Altere a URL abaixo para trocar o vídeo:
-// Pode ser um arquivo local (ex: "/video.mp4") ou URL externa.
-// ============================================================
-const HERO_VIDEO_URL = "https://videos.pexels.com/video-files/5765826/5765826-uhd_2560_1440_24fps.mp4";
+
+const HERO_VIDEO_URL = "src/assets/videodohero.mp4";
 
 const HeroSection = () => {
   return (
