@@ -7,10 +7,10 @@ import project3 from "@/assets/project-3.jpg";
 import project4 from "@/assets/project-4.jpg";
 
 const projects = [
-  { img: project1, title: "Residência Alphaville", area: "480m²", style: "Contemporâneo" },
-  { img: project2, title: "Casa Jardins", area: "620m²", style: "Moderno" },
-  { img: project3, title: "Residência Serra", area: "350m²", style: "Rústico Moderno" },
-  { img: project4, title: "Villa Horizonte", area: "550m²", style: "Minimalista" },
+  { img: project1, title: "Casa Quinta das Paineiras", area: "740m²", style: "Minimalista" },
+  { img: project2, title: "Casa de Madeira", area: "80m² a 490m²", style: "Rústico" },
+  { img: project3, title: "Obra UPA", area: "3.000m²", style: "Hospitalar" },
+  { img: project4, title: "Museu da Polícia Militar de SP", area: "7.300m²", style: "Reforma Completa" },
 ];
 
 const ProjectsSection = () => {

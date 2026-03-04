@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaFacebookF, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaWhatsapp } from "react-icons/fa";
 
-const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
+const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const socials = [
   { icon: FaInstagram, href: "https://instagram.com/sorgengenharia", label: "Instagram" },
   { icon: FaFacebookF, href: "https://facebook.com/sorgengenharia", label: "Facebook" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com/company/sorgengenharia", label: "LinkedIn" },
+  
   { icon: FaWhatsapp, href: WA_LINK, label: "WhatsApp" },
 ];
 
@@ -78,10 +78,10 @@ const Footer = () => {
               Contato
             </h4>
             <a
-              href="tel:+5511999231384"
+              href="tel:+5511942132670"
               className="text-primary-foreground/50 text-sm hover:text-primary-foreground transition-colors block mb-2"
             >
-              +55 (11) 99923-1384
+              +55 (11) 94213-2670
             </a>
             <a
               href="mailto:contato@sorgengenharia.com.br"

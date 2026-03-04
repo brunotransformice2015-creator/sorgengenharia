@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
-const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
+const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const Logo = ({ scrolled }: { scrolled: boolean }) => {
   const [imgError, setImgError] = useState(false);
