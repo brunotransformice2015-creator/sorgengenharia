@@ -35,7 +35,7 @@ const HeroSection = () => {
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tight text-primary-foreground uppercase">
             Sua casa dos
             <br />
-            sonhos, do projeto
+            sonhos, de projeto
             <br />
             <motion.span
               className="italic font-normal text-gold inline-block"
