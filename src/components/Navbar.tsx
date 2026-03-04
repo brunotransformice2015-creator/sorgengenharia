@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import logoSorg from "@/assets/logosorg.png";
+import logoSorg from "@/assets/logotipo-sorg.png";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
@@ -11,23 +11,32 @@ const Logo = ({ scrolled }: { scrolled: boolean }) => {
 
   if (imgError) {
     return (
+      <div className={`flex items-center gap-2 transition-colors duration-300 ${
+        scrolled ? "text-primary" : "text-primary-foreground"
+      }`}>
+        <span className="text-xl sm:text-2xl font-bold tracking-tight">
+          SORG<span className="font-light ml-1">Engenharia</span>
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex items-center gap-2">
+      <img
+        src={logoSorg}
+        alt="Sorg Engenharia"
+        onError={() => setImgError(true)}
+        className={`h-8 sm:h-10 w-auto object-contain transition-all duration-300 ${
+          scrolled ? "" : "brightness-0 invert"
+        }`}
+      />
       <span className={`text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-300 ${
         scrolled ? "text-primary" : "text-primary-foreground"
       }`}>
         SORG<span className="font-light ml-1">Engenharia</span>
       </span>
-    );
-  }
-
-  return (
-    <img
-      src={logoSorg}
-      alt="Sorg Engenharia"
-      onError={() => setImgError(true)}
-      className={`h-9 sm:h-11 w-auto min-w-[100px] object-contain transition-all duration-300 ${
-        scrolled ? "" : "brightness-0 invert"
-      }`}
-    />
+    </div>
   );
 };
 
