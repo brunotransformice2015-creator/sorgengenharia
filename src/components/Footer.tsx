@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import logoSorg from "@/assets/logosorg.png";
+import logoSorg from "@/assets/logotipo-sorg.png";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
@@ -22,19 +22,26 @@ const FooterLogo = () => {
 
   if (imgError) {
     return (
-      <span className="text-xl font-bold text-section-dark-foreground mb-4 block">
-        SORG <span className="font-light">Engenharia</span>
-      </span>
+      <div className="flex items-center gap-2 mb-4">
+        <span className="text-xl font-bold text-section-dark-foreground">
+          SORG <span className="font-light">Engenharia</span>
+        </span>
+      </div>
     );
   }
 
   return (
-    <img
-      src={logoSorg}
-      alt="Sorg Engenharia"
-      onError={() => setImgError(true)}
-      className="h-10 w-auto min-w-[100px] object-contain brightness-0 invert mb-4"
-    />
+    <div className="flex items-center gap-2 mb-4">
+      <img
+        src={logoSorg}
+        alt="Sorg Engenharia"
+        onError={() => setImgError(true)}
+        className="h-9 w-auto object-contain brightness-0 invert"
+      />
+      <span className="text-xl font-bold text-section-dark-foreground">
+        SORG <span className="font-light">Engenharia</span>
+      </span>
+    </div>
   );
 };
 
