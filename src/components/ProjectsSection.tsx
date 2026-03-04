@@ -92,14 +92,14 @@ const ProjectsSection = () => {
         </div>
 
         {/* Thumbnails */}
-        <div className="flex justify-center gap-3 md:gap-4 mt-6 md:mt-8">
+        <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mt-6 md:mt-8">
           {projects.map((p, i) => (
             <motion.button
               key={p.title}
               onClick={() => setActive(i)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative rounded-xl md:rounded-2xl overflow-hidden w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-20 lg:w-36 lg:h-24 transition-all duration-300 ${
+              className={`relative rounded-xl md:rounded-2xl overflow-hidden w-[72px] h-[50px] sm:w-24 sm:h-16 md:w-32 md:h-20 lg:w-36 lg:h-24 transition-all duration-300 ${
                 i === active
                   ? "ring-2 ring-accent ring-offset-2 ring-offset-secondary shadow-lg"
                   : "opacity-50 hover:opacity-80"

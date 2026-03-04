@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Landmark, CheckCircle, TrendingUp, ShieldCheck } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
+const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const benefits = [
   { icon: CheckCircle, text: "Fácil aprovação de limite" },
@@ -79,7 +79,7 @@ const FinancialSection = () => {
                 </p>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-accent/20 rounded-2xl -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-accent/20 rounded-2xl -z-10 hidden md:block" />
           </motion.div>
         </div>
       </div>
