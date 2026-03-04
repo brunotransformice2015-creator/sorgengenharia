@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import heroVideo from "../assets/videodohero.mp4";
+import sorgLogo from "../assets/sorglogo.png";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
-
-const HERO_VIDEO_URL = "src/assets/videodohero.mp4";
 
 const HeroSection = () => {
   return (
@@ -17,10 +17,10 @@ const HeroSection = () => {
           muted
           playsInline
           preload="metadata"
-          poster="src/assets/sorglogo.png"
+          poster={sorgLogo}
           className="w-full h-full object-cover pointer-events-none select-none"
         >
-          <source src={HERO_VIDEO_URL} type="video/mp4" />
+          <source src={heroVideo} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/10" />
       </div>
@@ -35,7 +35,7 @@ const HeroSection = () => {
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tight text-primary-foreground uppercase">
             Sua casa dos
             <br />
-            sonhos, do projeto
+            sonhos, de projeto
             <br />
             <motion.span
               className="italic font-normal text-gold inline-block"
