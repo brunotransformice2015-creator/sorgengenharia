@@ -24,7 +24,7 @@ const Logo = ({ scrolled }: { scrolled: boolean }) => {
       src={logoSorg}
       alt="Sorg Engenharia"
       onError={() => setImgError(true)}
-      className={`h-12 sm:h-14 w-auto object-contain transition-all duration-300 ${
+      className={`h-14 sm:h-16 w-auto object-contain transition-all duration-300 ${
         scrolled ? "" : "brightness-0 invert"
       }`}
     />
@@ -56,7 +56,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/30"
-          : "bg-transparent"
+          : "bg-white/10 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
