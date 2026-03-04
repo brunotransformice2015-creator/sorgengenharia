@@ -12,13 +12,16 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0">
         <video
-          src={HERO_VIDEO_URL}
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
-        />
+          preload="metadata"
+          poster="src/assets/sorglogo.png"
+          className="w-full h-full object-cover pointer-events-none select-none"
+        >
+          <source src={HERO_VIDEO_URL} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/10" />
       </div>
 
