@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-const WA_LINK = "https://wa.me/5511999231384?text=Quero%20fazer%20um%20or%C3%A7amento";
+const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const CTASection = () => {
   return (
@@ -38,7 +38,7 @@ const CTASection = () => {
               Falar no WhatsApp <ArrowRight size={16} />
             </a>
             <a
-              href="tel:+5511999231384"
+              href="tel:+5511942132670"
               className="border border-primary-foreground/30 text-primary-foreground font-semibold px-8 py-4 rounded-lg hover:bg-primary-foreground/10 transition-colors text-sm"
             >
               Ligar Agora
