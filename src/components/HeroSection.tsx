@@ -1,27 +1,54 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import heroVideo from "../assets/videodohero.mp4";
-import sorgLogo from "../assets/sorglogo.png";
+import heroFallback from "../assets/hero-construction.jpg";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
-
 const HeroSection = () => {
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
+
+  useEffect(() => {
+    // Só carrega o vídeo em telas a partir de md e depois que a página montar
+    const enableVideo = () => {
+      if (window.innerWidth >= 768) {
+        setShouldPlayVideo(true);
+      }
+    };
+
+    // pequeno delay para priorizar render inicial
+    const timeoutId = window.setTimeout(enableVideo, 600);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-end overflow-hidden">
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster={sorgLogo}
-          className="w-full h-full object-cover pointer-events-none select-none"
-        >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
+        {shouldPlayVideo ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            poster={heroFallback}
+            className="w-full h-full object-cover pointer-events-none select-none"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={heroFallback}
+            alt="Obra em destaque da Sorg Engenharia"
+            className="w-full h-full object-cover pointer-events-none select-none"
+            loading="lazy"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/10" />
       </div>
 

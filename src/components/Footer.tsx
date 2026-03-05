@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import logoSorg from "@/assets/logodasorg.png";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const socials = [
-  { icon: FaInstagram, href: "https://instagram.com/sorgengenharia", label: "Instagram" },
+  { icon: FaFacebook, href: "https://www.facebook.com/lpfengenharia?mibextid=wwXIfr&rdid=2EkPj89k0qZAMzHC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DAsNWNE2u%2F%3Fmibextid%3DwwXIfr#", label: "Facebook" },
   { icon: FaWhatsapp, href: WA_LINK, label: "WhatsApp" },
 ];
 
