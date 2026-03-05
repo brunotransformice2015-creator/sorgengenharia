@@ -52,15 +52,15 @@ const ServicesSection = () => {
             className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start"
           >
             <span className="text-accent font-semibold text-sm tracking-widest uppercase">
-              Nossos Serviços
+              Serviços de Gerenciamento de Obras
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold mt-4 text-foreground leading-tight">
-              Gerenciamento completo,{" "}
+              Gerenciamento de Obras completo,{" "}
               <span className="italic text-accent">do início ao fim</span>
             </h2>
             <p className="text-muted-foreground mt-5 leading-relaxed">
               Você já tem o projeto da sua casa pronto. Agora, deixe que a Sorg
-              Engenharia transforme cada desenho em realidade com excelência.
+              Engenharia faça o Gerenciamento de Obras e transforme cada desenho em realidade com excelência.
             </p>
             <div className="hidden lg:block mt-8 w-16 h-1 bg-accent/30 rounded-full" />
           </motion.div>

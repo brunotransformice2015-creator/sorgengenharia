@@ -1,77 +1,43 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import heroVideo from "../assets/videodohero.mp4";
 import heroFallback from "../assets/hero-construction.jpg";
 
 const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7amento";
 
 const HeroSection = () => {
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
-
-  useEffect(() => {
-    // Só carrega o vídeo em telas a partir de md e depois que a página montar
-    const enableVideo = () => {
-      if (window.innerWidth >= 768) {
-        setShouldPlayVideo(true);
-      }
-    };
-
-    // pequeno delay para priorizar render inicial
-    const timeoutId = window.setTimeout(enableVideo, 600);
-
-    return () => {
-      window.clearTimeout(timeoutId);
-    };
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-end overflow-hidden">
+    <section className="relative min-h-screen flex items-start md:items-center overflow-hidden">
       <div className="absolute inset-0">
-        {shouldPlayVideo ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            poster={heroFallback}
-            className="w-full h-full object-cover pointer-events-none select-none"
-          >
-            <source src={heroVideo} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src={heroFallback}
-            alt="Obra em destaque da Sorg Engenharia"
-            className="w-full h-full object-cover pointer-events-none select-none"
-            loading="lazy"
-          />
-        )}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          poster={heroFallback}
+          className="w-full h-full object-cover pointer-events-none select-none"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/10" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-10 sm:pb-12 pt-32 sm:pt-40">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-10 sm:pb-12 pt-24 sm:pt-28 md:pt-32">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
           className="max-w-3xl mb-6 sm:mb-8"
         >
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tight text-primary-foreground uppercase">
-            Sua casa dos
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase shadow-md shadow-black/30 mb-4">
+            Gerenciamento de Obras
+          </span>
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold leading-[1.1] tracking-tight text-primary-foreground uppercase">
+            Do projeto
             <br />
-            sonhos, de projeto
-            <br />
-            <motion.span
-              className="italic font-normal text-gold inline-block"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
-            >
-              À REALIDADE.
-            </motion.span>
+            à entrega das chaves.
           </h1>
         </motion.div>
 
@@ -117,7 +83,7 @@ const HeroSection = () => {
           {[
             { num: "150+", label: "Obras Entregues" },
             { num: "32+", label: "Parceiros Financeiros" },
-            { num: "98%", label: "Clientes Satisfeitos" },
+            { num: "100%", label: "Clientes Satisfeitos" },
             { num: "15+", label: "Anos de Experiência" },
           ].map((stat, i) => (
             <motion.div

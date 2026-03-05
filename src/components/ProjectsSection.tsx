@@ -89,7 +89,7 @@ const ProjectsSection = () => {
             Projetos que <span className="italic text-accent">inspiram</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-lg mx-auto text-sm leading-relaxed">
-            Cada obra é única. Confira alguns dos nossos projetos entregues com excelência.
+            Cada obra é única. Confira alguns dos nossos projetos de Gerenciamento de Obras entregues com excelência.
           </p>
         </motion.div>
 

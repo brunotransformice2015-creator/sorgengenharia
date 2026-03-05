@@ -48,7 +48,7 @@ const Footer = () => {
           <div className="md:col-span-1">
             <FooterLogo />
             <p className="text-section-dark-foreground/50 text-sm leading-relaxed max-w-xs">
-              Engenharia de excelência para transformar seu projeto em realidade. 
+              Engenharia de excelência focada em Gerenciamento de Obras para transformar seu projeto em realidade. 
               Do planejamento à entrega, cada detalhe sob controle.
             </p>
           </div>
