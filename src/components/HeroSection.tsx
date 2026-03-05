@@ -8,7 +8,7 @@ const WA_LINK = "https://wa.me/5511942132670?text=Quero%20fazer%20um%20or%C3%A7a
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-start md:items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <video
           autoPlay
@@ -24,17 +24,17 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-foreground via-foreground/60 to-foreground/10" />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-10 sm:pb-12 pt-24 sm:pt-28 md:pt-32">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 pb-16 sm:pb-20 pt-20 sm:pt-24 md:pt-28 flex flex-col h-full">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-          className="max-w-3xl mb-6 sm:mb-8"
+          className="max-w-3xl mb-8 sm:mb-10 text-center md:text-left"
         >
           <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase shadow-md shadow-black/30 mb-4">
             Gerenciamento de Obras
           </span>
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold leading-[1.1] tracking-tight text-primary-foreground uppercase">
+          <h1 className="font-display text-6xl sm:text-6xl md:text-5xl lg:text-[3.5rem] xl:text-[4.5rem] font-bold leading-[1.1] tracking-tight text-primary-foreground uppercase">
             Do projeto
             <br />
             à entrega das chaves.
@@ -45,14 +45,14 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 sm:gap-8 mb-12 sm:mb-16"
+          className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 sm:gap-8 mb-10 sm:mb-12"
         >
-          <p className="max-w-md text-primary-foreground/60 text-sm sm:text-base leading-relaxed font-light">
+          <p className="max-w-md text-primary-foreground/70 text-sm sm:text-base leading-relaxed font-light text-center md:text-left mx-auto md:mx-0">
             Engenharia de excelência com atendimento exclusivo. 
             Do alicerce à entrega das chaves, cada detalhe sob controle.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-start gap-4 sm:gap-4 mt-4 sm:mt-0">
             <motion.a
               href={WA_LINK}
               target="_blank"
@@ -78,7 +78,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="border-t border-primary-foreground/10 pt-6 sm:pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8"
+          className="mt-auto border-t border-primary-foreground/10 pt-6 sm:pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center"
         >
           {[
             { num: "150+", label: "Obras Entregues" },
@@ -91,11 +91,11 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.4 + i * 0.1 }}
-            >
-              <div className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-primary-foreground tracking-tight">
+              >
+                <div className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-primary-foreground tracking-tight text-center">
                 {stat.num}
               </div>
-              <div className="text-[10px] sm:text-xs text-primary-foreground/40 mt-1 tracking-wider uppercase">
+                <div className="text-[10px] sm:text-xs text-primary-foreground/40 mt-1 tracking-wider uppercase text-center">
                 {stat.label}
               </div>
             </motion.div>
