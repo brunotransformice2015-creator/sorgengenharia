@@ -39,7 +39,7 @@ const OtherServicesSection = () => {
             Outros serviços <span className="italic text-accent">prestados</span>
           </h2>
           <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
-            Além do gerenciamento de obras, oferecemos soluções completas para diferentes necessidades.
+            Além do Gerenciamento de Obras principal, oferecemos soluções completas para diferentes necessidades.
           </p>
         </motion.div>
 
